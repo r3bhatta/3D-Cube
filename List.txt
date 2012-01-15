@@ -1,10 +1,10 @@
 onClipEvent (load) {
-this.addItem({label:"Collaborative tools"});
-this.addItem({label:"Social Networking"});
-this.addItem({label:"Unified Communications"});
-this.addItem({label:"Lotus Notes Components"});
-this.addItem({label:"Avaya Phone"});
-this.addItem({label:"Blackberry"});
+this.addItem({label:"Side1"});
+this.addItem({label:"Side2"});
+this.addItem({label:"Side3"});
+this.addItem({label:"Side4"});
+this.addItem({label:"Side5"});
+this.addItem({label:"Side6"});
 this.multipleSelection = false;
 
 this.setStyle("fontWeight", "bold");
@@ -12,7 +12,7 @@ this.setStyle("fontFamily" , "Trebuchet MS");
 this.setStyle("borderStyle", "none");
 this.setStyle("marginLeft", 60);
 this.setStyle("vScrollPolicy", "off");
-// set initial conditions to Unified Communications
+// set initial conditions to label
 this.selectedIndex = 2 ; 
  _root.rotations.x=1.5 ;
  _root.rotations.y=0.2;
@@ -21,71 +21,71 @@ this.selectedIndex = 2 ;
 
 onClipEvent(enterFrame){
 
-	if(this.selectedIndex == 0 ) // Collab Tools
+	if(this.selectedIndex == 0 ) // Label 1 
 	   { 
 	   	  if( _root.rotations.x!=4.6 ||  _root.rotations.y!=0.2 ) //x is off
 		   {
-			   if(_root.rotations.x <= 4.6) 
+			   if(_root.rotations.x <= 4.6) //
 			   		_root.rotations.x += 0.1;
-			   if(_root.rotations.x > 4.6) 
+			   if(_root.rotations.x > 4.6) // 
 			   		_root.rotations.x -= 0.1;
 					
-			   if(_root.rotations.y <= 0.2) 
+			   if(_root.rotations.y <= 0.2) //
 			   		_root.rotations.y += 0.1;
-			   if(_root.rotations.y > 0.2) 
+			   if(_root.rotations.y > 0.2) //
 			   		_root.rotations.y -= 0.1;
 		   }
 		   
 	   }
 	   
-	 if(this.selectedIndex == 1 ) // Social Networking
+	 if(this.selectedIndex == 1 ) // Label 2
 	   { 
 	   	   if( _root.rotations.x!=0.1 ||  _root.rotations.y!=0.2 ) //x is off
 		   {
-			   if(_root.rotations.x <= 0.1) 
+			   if(_root.rotations.x <= 0.1) //
 			   		_root.rotations.x += 0.1;
-			   if(_root.rotations.x > 0.1) 
+			   if(_root.rotations.x > 0.1) // 
 			   		_root.rotations.x -= 0.1;
 					
-			   if(_root.rotations.y <= 0.2) 
+			   if(_root.rotations.y <= 0.2) //
 			   		_root.rotations.y += 0.1;
-			   if(_root.rotations.y > 0.2) 
+			   if(_root.rotations.y > 0.2) //
 			   		_root.rotations.y -= 0.1;
 		   }
 		   
 	   }
 	   
 	   
-	  if(this.selectedIndex == 2 ) // Unified Communications
+	  if(this.selectedIndex == 2 ) // Label 3 
 	   { 
 	   	   if( _root.rotations.x!=1.5 ||  _root.rotations.y!=0.2 ) //x is off
 		   {
-			   if(_root.rotations.x <= 1.5) 
+			   if(_root.rotations.x <= 1.5) //
 			   		_root.rotations.x += 0.1;
-			   if(_root.rotations.x > 1.5) 
+			   if(_root.rotations.x > 1.5) // 
 			   		_root.rotations.x -= 0.1;
 					
-			   if(_root.rotations.y <= 0.2) 
+			   if(_root.rotations.y <= 0.2) //
 			   		_root.rotations.y += 0.1;
-			   if(_root.rotations.y > 0.2) 
+			   if(_root.rotations.y > 0.2) //
 			   		_root.rotations.y -= 0.1;
 		   }
 		   
 	   }
 	   
 	   
-	   if(this.selectedIndex == 4 ) // Avaya Phones
+	   if(this.selectedIndex == 4 ) //  Label 4
 	   {  
 	   	   if( _root.rotations.x!=3.1 ||  _root.rotations.y!=0.2 ) //x is off
 		   {
-			   if(_root.rotations.x <= 3.1) 
+			   if(_root.rotations.x <= 3.1) //
 			   		_root.rotations.x += 0.1;
-			   if(_root.rotations.x > 3.1) 
+			   if(_root.rotations.x > 3.1) // 
 			   		_root.rotations.x -= 0.1;
 					
-			   if(_root.rotations.y <= 0.2) 
+			   if(_root.rotations.y <= 0.2) //
 			   		_root.rotations.y += 0.1;
-			   if(_root.rotations.y > 0.2) 
+			   if(_root.rotations.y > 0.2) //
 			   		_root.rotations.y -= 0.1;
 		   }
 		   
@@ -93,36 +93,36 @@ onClipEvent(enterFrame){
 
 
 
-	   if(this.selectedIndex == 3 ) // Lotus Notes
+	   if(this.selectedIndex == 3 ) //  Label 5 
 	   { 
 	   	   if( _root.rotations.x!=0||  _root.rotations.y!=5.0 ) //x is off
 		   {
-			   if(_root.rotations.x <= 0) 
+			   if(_root.rotations.x <= 0) //
 			   		_root.rotations.x += 0.1;
-			   if(_root.rotations.x > 0) 
+			   if(_root.rotations.x > 0) // 
 			   		_root.rotations.x -= 0.1;
 					
-			   if(_root.rotations.y <= 5.0) 
+			   if(_root.rotations.y <= 5.0) //
 			   		_root.rotations.y += 0.1;
-			   if(_root.rotations.y > 5.0) 
+			   if(_root.rotations.y > 5.0) //
 			   		_root.rotations.y -= 0.1;
 		   }
 
 	   }
 	   
 	   
-	   if(this.selectedIndex == 5 ) // Blackberry
+	   if(this.selectedIndex == 5 ) //  Label 6
 	   {
 		if( _root.rotations.x!=0 ||  _root.rotations.y!=1.9) //x is off
 		   {
-			   if(_root.rotations.x <= 0) 
+			   if(_root.rotations.x <= 0) //
 			   		_root.rotations.x += 0.1;
-			   if(_root.rotations.x > 0) 
+			   if(_root.rotations.x > 0) // 
 			   		_root.rotations.x -= 0.1;
 					
-			   if(_root.rotations.y <= 1.9) 
+			   if(_root.rotations.y <= 1.9) //
 			   		_root.rotations.y += 0.1;
-			   if(_root.rotations.y > 1.9)
+			   if(_root.rotations.y > 1.9) //
 			   		_root.rotations.y -= 0.1;
 		   }
 		   
