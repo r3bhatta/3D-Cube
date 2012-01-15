@@ -5,12 +5,15 @@ The cube was used as a splash page for the Manulife Financial Education Modules 
 The different areas in the list refer to different tools used by Manulife Employees
 Both files are Action Script files, and will run with Adobe Flash CS 5.0 and above
 
+Your Usage
+
+If you want a 3D cube that rotates , according to clicks on a list, using Adobe Flash
 
 Pre-requisites
 Adobe Flash CSS 5.0 and above
 
 Installation:
-To install, just install all text files, along with picture files.
-Name the pictures to  "image0","image1","image2","image3","image4", and "image5" and store them in the project library
-Add both Action script files as new  Action Script Files.
+Download all text files
+Take 6 pictures, name them   "image0","image1","image2","image3","image4", and "image5" and store them in the project library
+Add the data of both files as new  Action Script Files.
 Run
