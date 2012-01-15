@@ -53,17 +53,17 @@ theScene.onEnterFrame = function(){
 theScene.onRelease  = function() {
 		switch(_root.my_list.selectedIndex)
 		{
-			case 0 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/CollabTools/Menu.swf");
+			case 0 :getURL("https://www.google.com/");
 			break;
-			case 1 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/SocialNetwork/Social%20Networking%20Intro.swf");
+			case 1 :getURL("https://www.google.com/");
 			break;
-			case 2 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/Unified%20Communication/Index.swf");
+			case 2 :getURL("https://www.google.com/");
 			break;
-			case 3 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/Lotus%20Notes%20Components/Index_lotus.swf");
+			case 3 :getURL("https://www.google.com/");
 			break;
-			case 4 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/AVAYA/IntroAvaya%20v3.swf")
+			case 4 :getURL("https://www.google.com/")
 			break;
-			case 5 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/Blackberry/IntroBB%20v3.swf");
+			case 5 :getURL("https://www.google.com/");
 			break;
 			default: break;
 		}
