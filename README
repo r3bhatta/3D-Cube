@@ -1,9 +1,16 @@
-#############
+Information
 
 Action Script 2.0 Code that  I implemented while at my work term at Manulife Financial
-
 The cube was used as a splash page for the Manulife Financial Education Modules project once accepted by sponsors.
-
 The different areas in the list refer to different tools used by Manulife Employees
-
 Both files are Action Script files, and will run with Adobe Flash CS 5.0 and above
+
+
+Pre-requisites
+Adobe Flash CSS 5.0 and above
+
+Installation:
+To install, just install all text files, along with picture files.
+Name the pictures to  "image0","image1","image2","image3","image4", and "image5" and store them in the project library
+Add both Action script files as new  Action Script Files.
+Run
