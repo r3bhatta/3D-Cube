@@ -1,0 +1,157 @@
+Stage.scaleMode = 'noScale';
+this.createEmptyMovieClip("theScene", 1);
+// create a movie clip for the cube to reside
+// place it to the right of the screen
+theScene._y = 150;
+theScene._x = 350;
+// 3D rotation is defined by an object
+// which has rotation values for each axis
+var rotations = {x:0, y:0, z:0};
+
+// The points within the cube are defined
+// in an array called boxPoints
+/* Points
+   3 - 4
+  /   /|
+ 0 -   5
+ |   |/
+ 2 - 1
+*/
+var boxPoints = [
+	{x:-250, y:-250, z:-250},
+	{x:250, y:250, z:-250},
+	{x:-250, y:250, z:-250},
+	{x:-250, y:-250, z:250},
+	{x:250, y:-250, z:250},
+	{x:250, y:250, z:250}
+];
+
+// generate each image for the cube
+createImages();
+
+// define enter frame event for rotating cube and
+// positioning images within it
+theScene.onEnterFrame = function(){
+
+	// transform original 3D points to 2D based on rotations
+	var points2d = pointsTransform(boxPoints, rotations);
+	
+	// for each image clip, use movieClip3PointTransform
+	// to alter its transform matrix so that it matches to
+	// 3 points within points2d
+	movieClip3PointTransform(this.image0, points2d[2], points2d[0], points2d[3]);
+	movieClip3PointTransform(this.image1, points2d[5], points2d[1], points2d[2]);
+	movieClip3PointTransform(this.image2, points2d[0], points2d[2], points2d[1]);
+	movieClip3PointTransform(this.image3, points2d[4], points2d[3], points2d[0]);
+	movieClip3PointTransform(this.image4, points2d[3], points2d[4], points2d[5]);
+	movieClip3PointTransform(this.image5, points2d[1], points2d[5], points2d[4]);
+}
+
+
+// do specific actions when clicking on the cube
+// based on what index is selected
+theScene.onRelease  = function() {
+		switch(_root.my_list.selectedIndex)
+		{
+			case 0 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/CollabTools/Menu.swf");
+			break;
+			case 1 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/SocialNetwork/Social%20Networking%20Intro.swf");
+			break;
+			case 2 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/Unified%20Communication/Index.swf");
+			break;
+			case 3 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/Lotus%20Notes%20Components/Index_lotus.swf");
+			break;
+			case 4 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/AVAYA/IntroAvaya%20v3.swf")
+			break;
+			case 5 :getURL("http://centralsharepoint/corpsys/torontoco-op/Fall%202011%20Projects/Fall%202011%20Education%20and%20Training%20Modules/Flash%20Files/Blackberry/IntroBB%20v3.swf");
+			break;
+			default: break;
+		}
+}
+
+// create images as empty movie clips.  Each contains another
+// empty movie clip in which each bitmap is attached. Using this
+// inner movie clip, any sized bitmap can be used and it will
+// stil conform to the size needed in the cube as this clip
+// is referenced in movieClip3PointTransform.
+function createImages(){
+	// for each side
+	var i = 6;
+	while(i--){
+		// create an image movie clip
+		theScene.createEmptyMovieClip("image"+i, i);
+		//theScene.createEmptyMovieClip("List", 1);
+		// create a contents clip
+		theScene["image"+i].createEmptyMovieClip("contents", i);
+		//emptyFace.onRollOver = emptyFace.onDragOver = rollOverFace;
+		// attach the appropriate bitmap in the contents clip
+		theScene["image"+i].contents.attachBitmap(
+			flash.display.BitmapData.loadBitmap("image"+i),
+			1, false, true
+		);
+	}
+}
+
+// transforms 3d points into 2d points based 
+// on the rotation values provided
+function pointsTransform(points, rotations){
+	var tpoints = new Array();
+	var sx = Math.sin(rotations.x);
+	var cx = Math.cos(rotations.x);
+	var sy = Math.sin(rotations.y);
+	var cy = Math.cos(rotations.y);
+	var sz = Math.sin(rotations.z);
+	var cz = Math.cos(rotations.z);
+	var x,y,z, xy,xz, yx,yz, zx,zy;
+
+	var i = points.length;
+	while (i--){
+		x = points[i].x;
+		y = points[i].y;
+		z = points[i].z;
+		// rotation around x
+		xy = cx*y - sx*z;
+		xz = sx*y + cx*z;
+		// rotation around y
+		yz = cy*xz - sy*x;
+		yx = sy*xz + cy*x;
+		// rotation around z
+		zx = cz*yx - sz*xy;
+		zy = sz*yx + cz*xy;
+		tpoints[i] = {x:zx, y:zy};
+	}
+	return tpoints;
+}
+
+// this function sets the transform for the image movie clips
+// each a, b, c, and d of the transform matrix are simply
+// based on the difference of positions of the points
+// they need to match with.  The image movie clips' contents
+// sizes are required to determine how much of that difference
+// is actually applied to make the transform match
+function movieClip3PointTransform(mc, a,b,c){
+	// deterimine visibility
+	mc._visible = pointsIsVisible(a,b,c);
+	// if not visible, exit function
+	if (!mc._visible) return;
+	
+	// set values for matrix using point b as top left
+	var m = mc.transform.matrix;
+	m.tx = b.x;
+	m.ty = b.y;
+	m.a = (a.x - b.x)/mc.contents._width;
+	m.b = (a.y - b.y)/mc.contents._width;
+	m.c = (c.x - b.x)/mc.contents._height;
+	m.d = (c.y - b.y)/mc.contents._height;
+	mc.transform.matrix = m;
+}
+
+// using a 2D relationship between 3 points
+// determine if a 3D face is visible
+function pointsIsVisible(c,b,a){
+	var db = b.x - a.x;
+	if (!db) return (a.y > b.y == c.x > a.x);
+	var dc = c.x - a.x;
+	if (!dc) return (a.y > c.y == b.x < a.x);
+	return ((b.y-a.y)/db < (c.y-a.y)/dc) != (a.x < b.x == a.x > c.x);
+}
